@@ -1,24 +1,29 @@
-# README
+## Instructions
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Building and Running the Application
 
-Things you may want to cover:
+1. Install Ruby 3.3.1
+2. Install dependencies: `bundle install`
+3. Run migrations: `rails db:migrate`
+4. Start the Rails server: `rails s`
+5. You can now access the application at `http://localhost:3000`.
 
-* Ruby version
+### Testing
 
-* System dependencies
+1. Run RSpec tests: `rspec`
 
-* Configuration
+## Answers to Questions
 
-* Database creation
+### How did you test that your implementation was correct?
 
-* Database initialization
+I wrote service tests and request tests using RSpec to ensure that the API works as expected.
 
-* How to run the test suite
+### If this application was destined for a production environment, what would you add or change?
 
-* Services (job queues, cache servers, search engines, etc.)
+In a production environment, I'd imagine the employee reports and payroll reports would have their own database tables. By pre-calculating and storing this data, it would significantly improve the speed of data retrieval, which is crucial for scalability. In this scenario, payroll reports might be paginated instead of fetching all records at once, or potentially could be filtered by employee.
 
-* Deployment instructions
+Also, I would add authentication and authorization to secure the endpoints, implement additional data validation, error handling, logging, rate limiting, and monitoring.
 
-* ...
+### What compromises did you have to make as a result of the time constraints of this challenge?
+
+Due to time constraints, I skipped model tests and prioritized tests for the services and requests. Also, I chose to only test happy paths to ensure basic functionality was covered.
